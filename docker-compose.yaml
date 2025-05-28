@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  localstack:
+    container_name: localstack
+    image: localstack/localstack
+    ports:
+      - "4566:4566"            # Porta principal da API
+      - "4510-4559:4510-4559"  # Portas dos serviços individuais
+    environment:
+      - SERVICES=ec2,s3,iam   # Serviços que queremos ativar
+      - DEBUG=1
+      - DOCKER_HOST=unix:///var/run/docker.sock
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "./localstack_data:/tmp/localstack_data"
