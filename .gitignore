@@ -1,6 +1,9 @@
 # Local .terraform directories
 **/.terraform/*
 **/.terraform*
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
 
 # Ignore variables files
 *.auto.tfvars
